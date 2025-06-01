@@ -45,6 +45,7 @@ shell.nix
 # Miscellaneous
 .prompts/
 .todo/
+examples/
 
 # Don't push tests during development
 coverage/
