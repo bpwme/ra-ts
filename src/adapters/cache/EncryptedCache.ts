@@ -1,4 +1,4 @@
-import type { CacheAdapter, Either } from "../../types"
+import type { ICacheAdapter, Either } from "../../types"
 import { success, error, CacheError } from "../../types"
 
 // Import your encryption utilities
@@ -19,7 +19,7 @@ try {
  */
 export type EncryptedCacheConfig = {
   /** Underlying cache adapter to wrap */
-  baseCache: CacheAdapter
+  baseCache: ICacheAdapter
   /** Encryption password (for password-based encryption) */
   password?: string
   /** Storage key for the encrypted cache */
@@ -33,9 +33,9 @@ export type EncryptedCacheConfig = {
 /**
  * Cache adapter that encrypts data before storing in the base cache
  */
-export class EncryptedCache implements CacheAdapter {
+export class EncryptedCache implements ICacheAdapter {
     private secureStorage: any
-    private baseCache: CacheAdapter
+    private baseCache: ICacheAdapter
     private readonly config: Required<Omit<EncryptedCacheConfig, "password">> & { password?: string }
     private readonly hasEncryption: boolean
     private isInitialized: boolean = false
@@ -280,7 +280,7 @@ export class EncryptedCache implements CacheAdapter {
     /**
    * Get the underlying base cache
    */
-    getBaseCache(): CacheAdapter {
+    getBaseCache(): ICacheAdapter {
         return this.baseCache
     }
 

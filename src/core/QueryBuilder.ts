@@ -1,4 +1,4 @@
-import type { QueryOptions, Validator, Either } from "../types/index.js"
+import type { QueryOptions, IValidator, Either } from "../types/index.js"
 import type { DataManager } from "./DataManager.js"
 
 /**
@@ -39,7 +39,7 @@ export class QueryBuilder<T> {
     /**
      * Add schema validation
      */
-    validate<S extends T>( schema: Validator<S> ): QueryBuilder<S> {
+    validate<S extends T>( schema: IValidator<S> ): QueryBuilder<S> {
         this.options.schema = schema
         return this as any
     }

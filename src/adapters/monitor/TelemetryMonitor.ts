@@ -1,6 +1,6 @@
 import {
-    Monitor,
-    Logger
+    IMonitor,
+    ILogger
 } from "../../types"
 
 /**
@@ -35,7 +35,7 @@ export type TelemetryConfig = {
     /** Custom attributes to add to all spans */
     attributes?: Record<string, any>
     /** Logger for debugging */
-    logger?: Logger
+    logger?: ILogger
 }
 
 /**
@@ -87,7 +87,7 @@ export type HealthCheckResult = {
 /**
  * OpenTelemetry-compatible monitor with distributed tracing
  */
-export class TelemetryMonitor implements Monitor {
+export class TelemetryMonitor implements IMonitor {
     private config: TelemetryConfig
     private spans = new Map<string, TraceSpan>()
     private metrics: MetricData[] = []

@@ -1,4 +1,4 @@
-import { Logger } from "../../types"
+import { ILogger } from "../../types"
 
 /**
  * Performance profiling configuration
@@ -15,7 +15,7 @@ export type ProfilerConfig = {
     /** Enable memory profiling */
     memoryProfiling: boolean
     /** Logger for debugging */
-    logger?: Logger
+    logger?: ILogger
 }
 
 /**

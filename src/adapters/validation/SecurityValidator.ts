@@ -1,4 +1,4 @@
-import type { Validator, Either } from "../../types"
+import type { IValidator, Either } from "../../types"
 import { success, error, ValidationError } from "../../types"
 
 // Import your sanitization utilities (peer dependencies)
@@ -41,7 +41,7 @@ export type SecurityValidatorConfig = {
 /**
  * Security validator that sanitizes data and checks for security issues
  */
-export class SecurityValidator implements Validator {
+export class SecurityValidator implements IValidator {
     private readonly config: Required<SecurityValidatorConfig>
     private readonly hasSanitization: boolean
 

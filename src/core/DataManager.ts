@@ -1,11 +1,11 @@
 import type { 
     DataManagerConfig, 
-    CacheAdapter, 
-    QueueAdapter, 
-    RateLimiter, 
-    Logger, 
-    Monitor,
-    Validator,
+    ICacheAdapter, 
+    IQueueAdapter, 
+    IRateLimiter, 
+    ILogger, 
+    IMonitor,
+    IValidator,
     Either,
     QueryOptions,
     MutationOptions,
@@ -22,12 +22,12 @@ import { NoOpMonitor } from "../adapters/defaults/NoOpMonitor"
  * Main DataManager class - coordinates all data operations
  */
 export class DataManager {
-    private cache?: CacheAdapter
-    private queue?: QueueAdapter
-    private rateLimiter: RateLimiter
-    private logger: Logger
-    private monitor?: Monitor
-    private securityValidator?: Validator
+    private cache?: ICacheAdapter
+    private queue?: IQueueAdapter
+    private rateLimiter: IRateLimiter
+    private logger: ILogger
+    private monitor?: IMonitor
+    private securityValidator?: IValidator
     
     // Internal state for deduplication and optimistic updates
     private deduplicationMap = new Map<string, Promise<Either<any, any>>>()

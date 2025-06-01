@@ -5,11 +5,21 @@ export default defineConfig( {
     build: {
         lib: {
             entry: resolve( __dirname, "src/index.ts" ),
-            name: "ra-ts",
-            fileName: format => `index.${format}.js`,
-            formats: [ "es", "cjs", "umd" ]
+            name: "RaTs",
+            fileName: format => `index.${format === "es" ? "es" : format}.js`,
+            formats: [ "es", "cjs" ]
+        },
+        rollupOptions: {
+            external: [ "isomorphic-dompurify", "validator" ],
+            output: {
+                globals: {
+                    "isomorphic-dompurify": "DOMPurify",
+                    "validator": "validator"
+                }
+            }
         },
         sourcemap: true,
-        outDir: "dist"
+        outDir: "dist",
+        emptyOutDir: true
     }
 } )

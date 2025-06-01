@@ -1,6 +1,6 @@
 import {
     Either,
-    Logger
+    ILogger
 } from "../../types"
 import { RequestBatcher, RequestBatcherConfig } from "./RequestBatcher"
 
@@ -19,7 +19,7 @@ export type DataLoaderConfig<K = any, V = any> = {
     /** Cache TTL in milliseconds */
     cacheTTL?: number
     /** Logger for debugging */
-    logger?: Logger
+    logger?: ILogger
 }
 
 /**

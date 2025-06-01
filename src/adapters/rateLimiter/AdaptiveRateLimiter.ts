@@ -1,4 +1,4 @@
-import { RateLimiter } from "../../types"
+import { IRateLimiter } from "../../types"
 import { TokenBucketLimiter } from "./TokenBucketLimiter"
 
 /**
@@ -22,7 +22,7 @@ export type AdaptiveRateLimiterConfig = {
 /**
    * Adaptive rate limiter that adjusts based on response times
    */
-export class AdaptiveRateLimiter implements RateLimiter {
+export class AdaptiveRateLimiter implements IRateLimiter {
     private tokenBucket: TokenBucketLimiter
     private responseTimes: number[] = []
     private readonly config: Required<AdaptiveRateLimiterConfig>

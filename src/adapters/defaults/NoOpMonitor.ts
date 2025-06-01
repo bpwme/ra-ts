@@ -1,12 +1,12 @@
 
-import type { Monitor } from "../../types/index"
+import type { IMonitor } from "../../types/index"
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 /**
  * Default monitor that doesn't track anything
  */
-export class NoOpMonitor implements Monitor {
+export class NoOpMonitor implements IMonitor {
     track( event: string, data?: any ): void {
     // No-op
     }

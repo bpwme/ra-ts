@@ -1,5 +1,5 @@
 import {
-    StreamAdapter,
+    IStreamAdapter,
     StreamError,
     StreamHandler,
     StreamMessage,
@@ -8,7 +8,7 @@ import {
     Either,
     success,
     error,
-    Logger
+    ILogger
 } from "../../types"
 
 /**
@@ -46,7 +46,7 @@ export type WebSocketAdapterConfig = {
     maxQueueSize?: number
     
     /** Logger for debugging */
-    logger?: Logger
+    logger?: ILogger
 }
 
 /**
@@ -74,7 +74,7 @@ const DEFAULT_CONFIG: Required<Omit<WebSocketAdapterConfig, "url" | "protocols" 
 /**
  * WebSocket adapter implementation with advanced features
  */
-export class WebSocketAdapter implements StreamAdapter {
+export class WebSocketAdapter implements IStreamAdapter {
     private config: WebSocketAdapterConfig & Required<Omit<WebSocketAdapterConfig, "url" | "protocols" | "logger">>
     private ws: WebSocket | null = null
     private state: WebSocketState = WebSocketState.DISCONNECTED

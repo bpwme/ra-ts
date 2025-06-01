@@ -1,4 +1,4 @@
-import type { RateLimiter } from "../../types"
+import type { IRateLimiter } from "../../types"
 
 /**
  * Configuration for token bucket rate limiter
@@ -18,7 +18,7 @@ export type TokenBucketConfig = {
  * Token bucket rate limiter implementation
  * Allows bursts up to capacity, then enforces steady rate
  */
-export class TokenBucketLimiter implements RateLimiter {
+export class TokenBucketLimiter implements IRateLimiter {
     private tokens: number
     private lastRefill: number
     private readonly capacity: number

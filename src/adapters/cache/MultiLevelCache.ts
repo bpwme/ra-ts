@@ -1,5 +1,5 @@
 import {
-    AdvancedCacheAdapter,
+    IAdvancedCacheAdapter,
     MultiLevelCacheConfig,
     CacheLevelConfig,
     CacheAnalytics,
@@ -7,7 +7,7 @@ import {
     Either,
     success,
     error,
-    Logger
+    ILogger
 } from "../../types"
 
 /**
@@ -15,7 +15,7 @@ import {
  */
 export type MultiLevelCacheImplConfig = MultiLevelCacheConfig & {
     /** Logger for debugging */
-    logger?: Logger
+    logger?: ILogger
     /** Enable access pattern tracking */
     trackAccessPatterns?: boolean
     /** Promotion threshold (access count) */
@@ -39,7 +39,7 @@ type AccessPattern = {
 /**
  * Multi-level cache with automatic promotion/demotion
  */
-export class MultiLevelCache implements AdvancedCacheAdapter {
+export class MultiLevelCache implements IAdvancedCacheAdapter {
     private config: Required<Omit<MultiLevelCacheImplConfig, "consistencyHandler" | "logger">> & Pick<MultiLevelCacheImplConfig, "consistencyHandler" | "logger">
     private levels: CacheLevelConfig[]
     private accessPatterns = new Map<string, AccessPattern>()
@@ -244,8 +244,8 @@ export class MultiLevelCache implements AdvancedCacheAdapter {
             let entryCount = 0
             
             for ( const level of this.levels ) {
-                if ( ( level.adapter as AdvancedCacheAdapter ).getAnalytics ) {
-                    const result = await ( level.adapter as AdvancedCacheAdapter ).getAnalytics!()
+                if ( ( level.adapter as IAdvancedCacheAdapter ).getAnalytics ) {
+                    const result = await ( level.adapter as IAdvancedCacheAdapter ).getAnalytics!()
                     if ( result.success ) {
                         totalSize += result.data.totalSize
                         entryCount += result.data.entryCount
@@ -317,8 +317,8 @@ export class MultiLevelCache implements AdvancedCacheAdapter {
             let totalSize = 0
             
             for ( const level of this.levels ) {
-                if ( ( level.adapter as AdvancedCacheAdapter ).getSize ) {
-                    const result = await ( level.adapter as AdvancedCacheAdapter ).getSize!()
+                if ( ( level.adapter as IAdvancedCacheAdapter ).getSize ) {
+                    const result = await ( level.adapter as IAdvancedCacheAdapter ).getSize!()
                     if ( result.success ) {
                         totalSize += result.data
                     }

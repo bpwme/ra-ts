@@ -1,4 +1,4 @@
-import type { Monitor } from "../../types"
+import type { IMonitor } from "../../types"
 
 /**
  * Configuration for console monitor
@@ -32,7 +32,7 @@ type MetricEntry = {
 /**
  * Console-based monitor for development and debugging
  */
-export class ConsoleMonitor implements Monitor {
+export class ConsoleMonitor implements IMonitor {
     private metrics: MetricEntry[] = []
     private timers = new Map<string, number>()
     private readonly config: Required<ConsoleMonitorConfig>

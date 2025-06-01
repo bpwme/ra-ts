@@ -13,9 +13,6 @@ export default tseslint.config(
     {
         files: [ "**/*.ts" ],
         rules: {
-            // Prefer type over interface
-            "@typescript-eslint/consistent-type-definitions": [ "error", "type" ],
-            
             // Style preferences
             "indent": [ "error", 4 ],
             "semi": [ "error", "never" ],

@@ -12,7 +12,6 @@ export { IndexedDBCache } from "./adapters/cache/IndexedDBCache"
 export { LocalStorageCache } from "./adapters/cache/LocalStorageCache"
 export { EncryptedCache } from "./adapters/cache/EncryptedCache"
 export { MultiLevelCache } from "./adapters/cache/MultiLevelCache"
-export { TabSyncManager } from "./adapters/cache/TabSyncManager"
 export { CacheWarmer } from "./adapters/cache/CacheWarmer"
 
 // Cache adapter types
@@ -20,7 +19,7 @@ export type { MemoryCacheConfig } from "./adapters/cache/MemoryCache"
 export type { IndexedDBCacheConfig } from "./adapters/cache/IndexedDBCache"
 export type { LocalStorageCacheConfig } from "./adapters/cache/LocalStorageCache"
 export type { EncryptedCacheConfig } from "./adapters/cache/EncryptedCache"
-export type { MultiLevelCacheImplConfig, CacheWarmerConfig, TabSyncManagerConfig } from "./adapters/cache"
+export type { MultiLevelCacheImplConfig, CacheWarmerConfig } from "./adapters/cache"
 
 // Queue adapters
 export { BrowserQueue, JobStatus } from "./adapters/queue/BrowserQueue"

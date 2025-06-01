@@ -1,4 +1,4 @@
-import { CacheAdapter, CacheError, Either, error, success } from "../../types"
+import { ICacheAdapter, CacheError, Either, error, success } from "../../types"
 
 /**
  * Configuration for localStorage cache
@@ -28,7 +28,7 @@ export type LocalStorageCacheConfig = {
 /**
    * Fallback cache adapter using localStorage
    */
-export class LocalStorageCache implements CacheAdapter {
+export class LocalStorageCache implements ICacheAdapter {
     private readonly prefix: string
     private readonly defaultTTL?: number
     private readonly maxEntries: number

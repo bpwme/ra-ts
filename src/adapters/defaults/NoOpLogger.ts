@@ -1,11 +1,11 @@
-import type { Logger } from "../../types/index.js"
+import type { ILogger } from "../../types/index.js"
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 /**
  * Default logger that does nothing - for production use
  */
-export class NoOpLogger implements Logger {
+export class NoOpLogger implements ILogger {
     debug( message: string, data?: any ): void {
     // No-op
     }
@@ -26,7 +26,7 @@ export class NoOpLogger implements Logger {
 /**
  * Console logger for development
  */
-export class ConsoleLogger implements Logger {
+export class ConsoleLogger implements ILogger {
     debug( message: string, data?: any ): void {
         console.debug( `[DataManager] ${message}`, data || "" )
     }

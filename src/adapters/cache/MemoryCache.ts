@@ -1,4 +1,4 @@
-import type { CacheAdapter, Either } from "../../types"
+import type { ICacheAdapter, Either } from "../../types"
 import { success, error, CacheError } from "../../types"
 
 /**
@@ -27,7 +27,7 @@ type InternalCacheEntry<T = any> = {
 /**
  * High-performance in-memory cache with LRU eviction and TTL support
  */
-export class MemoryCache implements CacheAdapter {
+export class MemoryCache implements ICacheAdapter {
     private store = new Map<string, InternalCacheEntry>()
     private accessOrder: string[] = []
     private cleanupTimer?: NodeJS.Timeout

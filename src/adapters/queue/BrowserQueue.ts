@@ -2,7 +2,7 @@
 // FILE: src/adapters/queue/BrowserQueue.ts
 // ============================================================================
 
-import type { QueueAdapter, QueueJob, Either } from "../../types"
+import type { IQueueAdapter, QueueJob, Either } from "../../types"
 import { QueueError, success, error } from "../../types"
 
 /**
@@ -63,7 +63,7 @@ export type QueueStats = {
 /**
  * Persistent offline queue using IndexedDB with retry logic and exponential backoff
  */
-export class BrowserQueue implements QueueAdapter {
+export class BrowserQueue implements IQueueAdapter {
     private db: IDBDatabase | null = null
     private dbPromise: Promise<IDBDatabase> | null = null
     private processTimer?: NodeJS.Timeout

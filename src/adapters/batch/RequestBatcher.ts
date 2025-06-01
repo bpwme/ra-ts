@@ -1,5 +1,5 @@
 import {
-    RequestBatcher as IRequestBatcher,
+    IRequestBatcher as IRequestBatcher,
     BatchConfig,
     BatchStats,
     BatchRequest,
@@ -8,7 +8,7 @@ import {
     Either,
     success,
     error,
-    Logger
+    ILogger
 } from "../../types"
 
 /**
@@ -17,7 +17,7 @@ import {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export type RequestBatcherConfig<T = any, R = any> = BatchConfig & {
     /** Logger for debugging */
-    logger?: Logger
+    logger?: ILogger
     /** Enable request deduplication */
     enableDeduplication?: boolean
     /** Cache results for duplicate requests */

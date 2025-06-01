@@ -1,4 +1,4 @@
-import type { MutationOptions, Validator, Either } from "../types/index.js"
+import type { MutationOptions, IValidator, Either } from "../types/index.js"
 import type { DataManager } from "./DataManager.js"
 
 /**
@@ -47,7 +47,7 @@ export class MutationBuilder<T> {
     /**
      * Add schema validation for mutation response
      */
-    validate<S extends T>( schema: Validator<S> ): MutationBuilder<S> {
+    validate<S extends T>( schema: IValidator<S> ): MutationBuilder<S> {
         this.options.schema = schema
         return this as any
     }

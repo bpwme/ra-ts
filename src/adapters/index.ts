@@ -39,5 +39,5 @@ export { RequestBatcher, DataLoader } from "./batch"
 export type { RequestBatcherConfig, DataLoaderConfig } from "./batch"
 
 // Advanced cache adapters
-export { MultiLevelCache, CacheWarmer, TabSyncManager } from "./cache"
-export type { MultiLevelCacheImplConfig, CacheWarmerConfig, TabSyncManagerConfig } from "./cache"
+export { MultiLevelCache, CacheWarmer } from "./cache"
+export type { MultiLevelCacheImplConfig, CacheWarmerConfig } from "./cache"

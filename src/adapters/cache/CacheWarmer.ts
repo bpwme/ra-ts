@@ -1,12 +1,12 @@
 import {
-    CacheWarmer as ICacheWarmer,
+    ICacheWarmer as ICacheWarmer,
     CacheWarmingConfig,
-    CacheAdapter,
+    ICacheAdapter,
     CacheError,
     Either,
     success,
     error,
-    Logger
+    ILogger
 } from "../../types"
 
 /**
@@ -14,9 +14,9 @@ import {
  */
 export type CacheWarmerConfig = CacheWarmingConfig & {
     /** Cache adapter to warm */
-    cache: CacheAdapter
+    cache: ICacheAdapter
     /** Logger for debugging */
-    logger?: Logger
+    logger?: ILogger
     /** Maximum warmup duration in ms */
     maxWarmupDuration?: number
     /** Warmup batch size */

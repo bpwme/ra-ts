@@ -1,4 +1,4 @@
-import type { CacheAdapter, Either } from "../../types"
+import type { ICacheAdapter, Either } from "../../types"
 import { CacheError, success, error } from "../../types"
 
 /**
@@ -32,7 +32,7 @@ type IndexedDBEntry<T = any> = {
 /**
  * High-performance IndexedDB cache adapter for persistent storage
  */
-export class IndexedDBCache implements CacheAdapter {
+export class IndexedDBCache implements ICacheAdapter {
     private db: IDBDatabase | null = null
     private dbPromise: Promise<IDBDatabase> | null = null
   

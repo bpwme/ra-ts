@@ -1,13 +1,13 @@
 import {
-    StreamAdapter,
+    IStreamAdapter,
     StreamMessage,
     StreamHandler,
-    CacheAdapter,
+    ICacheAdapter,
     Either,
     success,
     error,
     StreamError,
-    Logger
+    ILogger
 } from "../../types"
 
 /**
@@ -29,13 +29,13 @@ export type InvalidationRule = {
  */
 export type CacheInvalidationConfig = {
     /** Stream adapter for receiving invalidation messages */
-    streamAdapter: StreamAdapter
+    streamAdapter: IStreamAdapter
     /** Cache adapter to invalidate */
-    cacheAdapter: CacheAdapter
+    cacheAdapter: ICacheAdapter
     /** Invalidation rules */
     rules: InvalidationRule[]
     /** Logger for debugging */
-    logger?: Logger
+    logger?: ILogger
 }
 
 /**

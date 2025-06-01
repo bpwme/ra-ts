@@ -1,4 +1,4 @@
-import { RateLimiter } from "../../types"
+import { IRateLimiter } from "../../types"
 
 /**
  * Configuration for concurrency limiter
@@ -15,7 +15,7 @@ export type ConcurrencyLimiterConfig = {
 /**
    * Concurrency limiter to control parallel request execution
    */
-export class ConcurrencyLimiter implements RateLimiter {
+export class ConcurrencyLimiter implements IRateLimiter {
     private running: number = 0
     private queue: Array<{
       resolve: () => void
