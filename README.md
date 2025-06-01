@@ -1,5 +1,7 @@
 # Ra-ts Documentation
 
+-- Docs are generated (for now) --
+
 **Ra-ts** - A powerful, type-safe data management library with caching, queuing, rate limiting, and advanced request handling capabilities.
 
 Ra-ts provides a robust foundation for managing data in modern applications with type safety, performance, and developer experience in mind. The modular adapter system allows you to customize behavior for your specific needs while maintaining a consistent API across your application. 

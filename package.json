@@ -1,8 +1,32 @@
 {
     "name": "@bpwme/ra-ts",
-    "license": "MIT",
-    "type": "module",
     "version": "0.0.1",
+    "description": "A TypeScript library for building requests.",
+    "keywords": [
+        "typescript",
+        "adapter",
+        "rate-limiting",
+        "caching",
+        "batching",
+        "streaming",
+        "request",
+        "http",
+        "middleware",
+        "composable"
+    ],
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/bpwme/ra-ts.git"
+    },
+    "bugs": {
+        "url": "https://github.com/bpwme/ra-ts/issues"
+    },
+    "homepage": "https://github.com/bpwme/ra-ts#readme",
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "type": "module",
     "exports": {
         ".": {
             "types": "./dist/index.d.ts",
@@ -21,6 +45,7 @@
         "build": "vite build && tsc --emitDeclarationOnly",
         "preview": "vite preview",
         "test": "vitest run",
+        "test:coverage": "vitest run --coverage",
         "test:watch": "vitest watch",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix"
